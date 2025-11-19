@@ -43,10 +43,6 @@ jobs:
       - name: Make wait script executable
         working-directory: selenium
         run: chmod +x wait-for-webserver.sh
-      
-      - name: Wait for web server
-        working-directory: selenium
-        run: ./wait-for-webserver.sh
 
       - name: Run Selenium Tests
         run: cd selenium && mvn test
