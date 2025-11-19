@@ -41,16 +41,12 @@ jobs:
         run: docker compose up -d
 
       - name: Make wait script executable
-        run: chmod +x wait-for-webserver.sh
         working-directory: selenium
+        run: chmod +x wait-for-webserver.sh
       
       - name: Wait for web server
+        working-directory: selenium
         run: ./wait-for-webserver.sh
-        working-directory: selenium
-      
-      - name: Run Selenium tests
-        run: mvn test
-        working-directory: selenium
 
       - name: Run Selenium Tests
         run: cd selenium && mvn test
